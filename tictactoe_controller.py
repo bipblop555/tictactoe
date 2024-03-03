@@ -11,11 +11,12 @@ class TictactoeController:
 		self.connect_widgets()
 
 
-
 	def connect_widgets(self):
-		for index_line in range(0, 3):
-			for index_column in range(0, 3):
-				self.tictactoe_view_object.findChild(QPushButton, f'push_button_{index_line}_{index_column}').clicked.connect(partial(self.update_game, index_line, index_column))
+		for index_line in range(0, 5):  
+			for index_column in range(0, 5):  
+				button = self.tictactoe_view_object.findChild(QPushButton, f'push_button_{index_line}_{index_column}')
+				if button:
+					button.clicked.connect(partial(self.update_game, index_line, index_column))
 
 
 	def update_game(self, index_line, index_column):

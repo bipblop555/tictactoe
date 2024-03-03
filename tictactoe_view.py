@@ -9,7 +9,7 @@ class TictactoeView(QMainWindow):
 
 	def __init__(self):
 		super(TictactoeView, self).__init__()
-		uic.loadUi(os.path.join(os.path.split(__file__)[0], "tictactoe.ui"), self)
+		uic.loadUi(os.path.join(os.path.split(__file__)[0], "tictactoe2.ui"), self)
 
 		self.dict_of_pixmaps = {f"player_{index_player}": QIcon(QPixmap(f"./player_{index_player}.png")) for index_player in range(1, 3)}
 
@@ -21,8 +21,8 @@ class TictactoeView(QMainWindow):
 
 
 	def game_finished(self, winner):
-		for index_line in range(0, 3):
-			for index_column in range(0, 3):
+		for index_line in range(0, 5):
+			for index_column in range(0, 5):
 				self.findChild(QPushButton, f'push_button_{index_line}_{index_column}').setEnabled(False)
 
 		if winner == 0 :
